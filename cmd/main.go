@@ -1,13 +1,14 @@
 package main
 
-import "github.com/gofiber/fiber/v2"
+import (
+	"github.com/gofiber/fiber/v2"
+	databse "github.com/xntle/div-rhino-trivia/database"
+)
 
 func main() {
+	databse.ConnectDb()
 	app := fiber.New()
 
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Hello, World!")
-	})
 
 	app.Listen(":3000")
 }
